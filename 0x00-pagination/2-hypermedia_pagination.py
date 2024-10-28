@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from typing import Tuple, List
+from typing import Tuple, List, Dict
 import csv
 import math
 
@@ -40,3 +40,26 @@ class Server:
             return []
         list_of_rows = dataset[start:end]
         return list_of_rows
+
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
+        """Returns the Hypermedia metadate"""
+        hypermedia_data = {}
+        dataset = self.dataset()
+        data = self.get_page(page, page_size)
+        next_page = page + 1
+        prev_page = page - 1
+        total_pages = ((len(dataset)) + (page_size - 1)) // page_size
+
+        if next_page > len(dataset):
+            next_page = None
+        if prev_page < 1:
+            prev_page = None
+
+        hypermedia_data["page_size"] = page_size
+        hypermedia_data["page"] = page
+        hypermedia_data["data"] = data
+        hypermedia_data["next_page"] = next_page
+        hypermedia_data["prev_page"] = prev_page
+        hypermedia_data["total_pages"] = total_pages
+
+        return hypermedia_data
