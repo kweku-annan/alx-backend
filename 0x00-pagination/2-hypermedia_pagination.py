@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
+"""Creates a server class"""
 from typing import Tuple, List, Dict
 import csv
-import math
 
 
 class Server:
