@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-"""Implements a pagination class"""
 from typing import Tuple, List
 import csv
 import math
