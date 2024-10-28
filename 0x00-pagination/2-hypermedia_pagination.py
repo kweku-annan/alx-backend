@@ -41,7 +41,8 @@ class Server:
         list_of_rows = dataset[start:end]
         return list_of_rows
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Union[int, List[List]]]:
+    def get_hyper(self, page: int = 1,
+                  page_size: int = 10) -> Dict[str, Union[int, List[List], None]]:
         """Returns the Hypermedia metadate"""
         hypermedia_data = {}
         dataset = self.dataset()
