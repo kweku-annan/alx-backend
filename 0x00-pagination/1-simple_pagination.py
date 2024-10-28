@@ -36,7 +36,7 @@ class Server:
         )
         start, end = index_range(page, page_size)
         dataset = self.dataset()
-        if start > len(dataset) - 1 or end > len(dataset) - 1:
+        if start > len(dataset) or end > len(dataset):
             return []
         list_of_rows = dataset[start:end]
         return list_of_rows
